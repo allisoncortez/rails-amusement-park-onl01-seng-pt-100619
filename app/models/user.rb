@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
 
     has_secure_password
     validates_presence_of :name, uniqueness: true
+
+    def mood
+        unless admin
+          happiness > nausea ? "happy" : "sad"
+        end
+      end
+
+
 end
